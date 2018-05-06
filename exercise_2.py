@@ -1,32 +1,34 @@
 
-def annograms(word):
+def anagrams(word):
 	"""
-	Use the file WORD.LST and returns annograms
+	Use the file WORD.LST and returns anagrams
 	of the word given in parameter word
 	"""
-	words = [w.rstrip() for w in open('WORD.lst') if len(w.rstrip()) == len(word) and w.rstrip() != word]
-	annogram_list = []
+	words = [
+		w.rstrip() for w in open('WORD.lst')
+		if len(w.rstrip()) == len(word) and w.rstrip() != word
+	]
+	anagram_list = []
 
 	for w in words:
 		tmp_word = list(word)
-		is_annogram = True
+		is_anagram = True
 		for letter in w:
 			if letter not in tmp_word:
-				is_annogram = False
+				is_anagram = False
 				break
 			else:
 				tmp_word.remove(letter)
 
-		if is_annogram : annogram_list.append(w)	
+		if is_anagram:
+			anagram_list.append(w)
 
-	return annogram_list
-
-	raise NotImplementedError
+	return anagram_list
 
 
 if __name__ == "__main__":
-	print(annograms("train"))
+	print(anagrams("train"))
 	print('--')
-	print(annograms("drive"))
+	print(anagrams("drive"))
 	print('--')
-	print(annograms("python"))
+	print(anagrams("python"))
