@@ -20,7 +20,7 @@ def annograms(word):
 		if is_annogram : annogram_list.append(w)	
 
 	return annogram_list
-	
+
 	raise NotImplementedError
 
 
